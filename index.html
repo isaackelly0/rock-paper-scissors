@@ -5,9 +5,62 @@
       function computerPlay(){
         //TODO: randomize rock-papaer-scissors strings
         let result = Math.floor(Math.random() * (3 - 1 + 1) + 1);
-        return result;
-      }
+        switch(result) {
+          case 1:
+          return 'rock';
+          case 2:
+          return 'paper';
+          case 3:
+          return 'scissors';
+        }
+      };
+      function game(){
+        let winCount = 0;
+        for(let i = 0; i < 5; i++){
+
+          let pcChoice = computerPlay();
+          let choice = prompt("choose rock, paper, or scissors");
+          let newChoice = choice.toLowerCase();
+          if(newChoice == 'rock'){
+            //check if rock wins against computerPlay
+            if(pcChoice == 'scissors'){
+              winCount++;
+            }
+            else{
+                continue;
+            }
+          }
+          else if(newChoice == 'paper'){
+            //check if paper wins against computerPlay
+            if(pcChoice == 'rock'){
+              winCount++;
+            }
+            else{
+              continue;
+            }
+          }
+          else if(newChoice == 'scissors'){
+            //code goes here
+            if(pcChoice == 'paper'){
+              winCount++;
+            }
+            else{
+              continue;
+            }
+          }
+          else{
+            i--;
+            console.log('Input not recognized, try again')
+          }
+        }
+        if(winCount > 2){
+          console.log("You win!");
+        }
+        else{
+          console.log("Sorry, you lose");
+        }
+      };
+      game();
     </script>
   </body>
 </html>
-console.log(computerPlay())
