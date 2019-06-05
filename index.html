@@ -16,36 +16,51 @@
       };
       function game(){
         let winCount = 0;
+        let lossCount = 0;
         for(let i = 0; i < 5; i++){
 
           let pcChoice = computerPlay();
           let choice = prompt("choose rock, paper, or scissors");
           let newChoice = choice.toLowerCase();
-          if(newChoice == 'rock'){
+          if(newChoice == pcChoice){
+            //see if choices match
+            console.log("It's a tie! Wins:" + winCount + " Losses:" + lossCount);
+          }
+          else if(newChoice == 'rock'){
             //check if rock wins against computerPlay
             if(pcChoice == 'scissors'){
               winCount++;
+              console.log("You win the round! Wins:" + winCount + " Losses:" + lossCount);
+
             }
             else{
-                continue;
+              lossCount++;
+              console.log("You lose the round! Wins:" + winCount + " Losses:" + lossCount);
             }
           }
           else if(newChoice == 'paper'){
             //check if paper wins against computerPlay
             if(pcChoice == 'rock'){
               winCount++;
+              console.log("You win the round! Wins:" + winCount + " Losses:" + lossCount);
+
             }
             else{
-              continue;
+              lossCount++;
+              console.log("You lose the round! Wins:" + winCount + " Losses:" + lossCount);
             }
           }
           else if(newChoice == 'scissors'){
-            //code goes here
+            //check if scissors wins against computerPlay
             if(pcChoice == 'paper'){
               winCount++;
+              console.log("You win the round! Wins:" + winCount + " Losses:" + lossCount);
+
             }
             else{
-              continue;
+              lossCount++;
+              console.log("You lose the round! Wins:" + winCount + " Losses:" + lossCount);
+
             }
           }
           else{
@@ -53,11 +68,14 @@
             console.log('Input not recognized, try again')
           }
         }
-        if(winCount > 2){
+        if(winCount > lossCount){
           console.log("You win!");
         }
-        else{
+        else if(lossCount > winCount){
           console.log("Sorry, you lose");
+        }
+        else{
+          console.log("Looks like it's a tie!")
         }
       };
       game();
