@@ -4,8 +4,10 @@
     <script>
       function computerPlay(){
         //TODO: randomize rock-papaer-scissors strings
-        
+        let result = Math.floor(Math.random() * (3 - 1 + 1) + 1);
+        return result;
       }
     </script>
   </body>
 </html>
+console.log(computerPlay())
